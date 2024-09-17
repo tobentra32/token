@@ -353,8 +353,6 @@ describe("Token contract", function() {
 
   });
   
-
-
-
 });
+
 
