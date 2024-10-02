@@ -93,7 +93,7 @@ contract MyToken is AccessControl {
     }
     // Public minting function where users pay Ether to mint tokens
     function buyTokens() public payable returns (bool success) {
-        require(msg.value > 0, "Send ETH to buy tokens");
+        require(msg.value > 0, "Send Amoy to buy tokens");
 
         // Calculate the number of tokens to mint based on the token price
         uint256 tokensToMint = (msg.value * 10 ** uint256(decimals)) / tokenPrice;
