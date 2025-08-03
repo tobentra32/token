@@ -100,7 +100,7 @@ function App() {
         setTxHash(txHash); // Show user the hash right away
         await tx.wait();
         alert("Tokens minted successfully!");
-        setTimeout(() => {
+        setTimeout(async () => {
           await fetchBalance();
           await fetchTokenBalance();
           setLoading(false);
@@ -128,7 +128,7 @@ function App() {
         setTxHash(txHash); // Show user the hash right away
         await tx.wait();
         alert("Tokens transferred successfully!");
-        setTimeout(() => {
+        setTimeout(async () => {
           await fetchBalance();
           await fetchTokenBalance();
           setLoading(false);
