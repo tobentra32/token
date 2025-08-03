@@ -1,38 +1,259 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #6e45e2;
+  --secondary: #88d3ce;
+  --accent: #ff7e5f;
+  --dark: #2a2d3e;
+  --light: #f9f9f9;
+  --success: #4caf50;
+  --error: #f44336;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: linear-gradient(135deg, var(--light) 0%, #e6f7ff 100%);
   min-height: 100vh;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--dark);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-size: 2rem;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.wallet-section {
+  display: flex;
+  align-items: center;
+}
+
+.connect-button {
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.connect-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.connect-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.account-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-end;
+}
+
+.account-address {
+  background-color: rgba(110, 69, 226, 0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.balance-display {
+  display: flex;
+  gap: 20px;
+}
+
+.balance-item {
+  text-align: right;
+}
+
+.balance-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.balance-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.token-highlight {
+  color: var(--accent);
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.action-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+}
+
+.action-card h2 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.mint-section {
+  background: linear-gradient(135deg, rgba(110, 69, 226, 0.05) 0%, rgba(136, 211, 206, 0.05) 100%);
+}
+
+.transfer-section {
+  background: linear-gradient(135deg, rgba(255, 126, 95, 0.05) 0%, rgba(254, 180, 123, 0.05) 100%);
+}
+
+.mint-description {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.action-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mint-button {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.transfer-button {
+  background: linear-gradient(to right, var(--accent), #fe9a8b);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.action-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.transfer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-group input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.tx-success {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--success);
+}
+
+.tx-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.tx-link:hover {
+  text-decoration: underline;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .wallet-section {
+    width: 100%;
+  }
+  
+  .account-info {
+    width: 100%;
+    align-items: flex-start;
   }
 }
