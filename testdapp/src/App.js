@@ -76,7 +76,7 @@ function App() {
 
     if (account) {
        // Fetch  Token balance
-        const _tokenBalance = await contract.balanceOf(accounts[0]);
+        const _tokenBalance = await contract.balanceOf(account);
         setTokenBalance(ethers.formatUnits(_tokenBalance, 18));
         console.log("token balance", tokenBalance);
     }
